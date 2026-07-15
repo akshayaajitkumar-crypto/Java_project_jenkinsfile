@@ -6,11 +6,15 @@ pipeline {
                  echo 'Chckout completed'
                    }
           }
-          stage ('Build') {
-            steps {
-                 sh 'mvn clean compile'
-                  }
-          }
+          stage('Build') {
+             steps {
+               sh '''
+               echo "PATH=$PATH"
+               which mvn
+              mvn -version
+              '''
+             }
+         }
           stage ('Test') {
             steps {
                  sh 'mvn test'
