@@ -13,9 +13,11 @@ pipeline {
             }
           }
           stage('Build') {
+           steps {
               dir('app') {
                sh 'mvn clean compile'
              }
+           }
          }
           stage ('Test') {
             steps {
