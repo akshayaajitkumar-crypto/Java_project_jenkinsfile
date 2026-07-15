@@ -3,7 +3,8 @@ pipeline {
      stages {
           stage ('checkout') {
              steps {
-                 echo 'Checking out source code...'
+                 git branch :'master',
+                   url 'https://github.com/akshayaajitkumar-crypto/MAVEN-SL-01-NOV-PROJECT.git'
                    }
           }
           stage ('Build') {
