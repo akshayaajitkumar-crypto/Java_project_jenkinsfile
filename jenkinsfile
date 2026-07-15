@@ -6,9 +6,10 @@ pipeline {
      stages {
           stage ('checkout') {
              steps {
-                 echo 'Chckout completed'
-                   }
-          }
+               dir('app') {
+                git branch: 'main',
+                url: 'https://github.com/akshayaajitkumar-crypto/MAVEN-SL-01-NOV-PROJECT.git'
+             }
           stage('Build') {
              steps {
                sh '''
