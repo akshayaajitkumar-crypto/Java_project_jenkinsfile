@@ -11,12 +11,8 @@ pipeline {
                 url: 'https://github.com/akshayaajitkumar-crypto/MAVEN-SL-01-NOV-PROJECT.git'
              }
           stage('Build') {
-             steps {
-               sh '''
-               echo "PATH=$PATH"
-               which mvn
-              mvn -version
-              '''
+              dir('app') {
+               sh 'mvn clean compile'
              }
          }
           stage ('Test') {
