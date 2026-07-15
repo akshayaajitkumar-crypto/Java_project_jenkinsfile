@@ -10,6 +10,8 @@ pipeline {
                 git branch: 'main',
                 url: 'https://github.com/akshayaajitkumar-crypto/MAVEN-SL-01-NOV-PROJECT.git'
              }
+            }
+          }
           stage('Build') {
               dir('app') {
                sh 'mvn clean compile'
