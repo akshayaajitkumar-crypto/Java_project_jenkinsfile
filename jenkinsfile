@@ -1,0 +1,38 @@
+pipeline {
+     agent any
+     stages {
+          stage ('checkout') {
+             steps {
+                 echo 'Checking out source code...'
+                   }
+          }
+          stage ('Build') {
+            steps {
+                 sh 'mvn clean compile'
+                  }
+          }
+          stage ('Test') {
+            steps {
+                 sh 'mvn test'
+                  }
+          }
+          stage ('PAckage') {
+            steps {
+                 sh 'mvn package'
+                  }
+          }
+          stage('Deploy') {
+            steps {
+                echo 'Deployment completed successfully.'
+            }
+          } 
+     }
+     post {
+        success {
+          echo 'Deployed successfuly'
+        }
+        failure {
+          echo 'Build Failed '
+        }
+     }
+}
