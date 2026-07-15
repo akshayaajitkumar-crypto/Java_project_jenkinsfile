@@ -7,7 +7,7 @@ pipeline {
           stage ('checkout') {
              steps {
                dir('app') {
-                git branch: 'main',
+                git branch: 'master',
                 url: 'https://github.com/akshayaajitkumar-crypto/MAVEN-SL-01-NOV-PROJECT.git'
              }
             }
